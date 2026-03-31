@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+/*
+    - rgba(vermelho, verde, azul, opacidade)
+    - margin & padding:
+        1 valor - todos os lados
+        2 valores - em cima e embaixo, direita e esquerda
+        3 valores - em cima, dos lados, embaixo
+        4 valores - em cima, direita, embaixo, esquerda
+    - Body:min-height: 100vh - tela toda
+    - backdrop-filter: blur(qtd_px) - Colocar blur na area do container
+    width: 320px; /*Limitar o tamanho do container - que está na tag main */
+    /*background-color: ;*/
+    /*border: ;  Acrescentar uma borda ao container */
+    /*border-radius: ; Deixar a bordar redonda */
+    /*color: ; Cor dos textos e input area*/
+    /*padding: ; Espaço interno entre o conteúdo de um elemento e sua borda*/
+    /*box-shadow: ; Sombras ao redor da borda do container/
+*/
+
+
+* {
+
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Caveat", cursive;
+
+}
+
+body {
+
+    display: flex;
+    justify-content: center; /*Alinhar - Horizontal*/
+    align-items: center; /*Alinhar - Vertical*/
+    min-height: 100vh; /*Minimo de altura que o body irá ocupar. 100vh = Tela Toda*/
+    background-image: url('../assets/img.jpg');
+    background-size: cover; /*Esticar na tela toda - por precaução*/
+    background-position: center; /*Centralizar a imagem do background no centro da tela*/
+}
+
+.container {
+
+    width: 320px; /*Limitar o tamanho do container - que está na tag main */
+    background-color: transparent;
+    border: 0px solid rgba(255, 255, 255, .2); /* Acrescentar uma borda ao container */
+    border-radius: 10px; /*Deixar a bordar redonda */
+
+}
+
+.container h1 {
+
+    font-size: 36px; /*Tamanho da fonte do texto maior*/
+    text-align: center;/*Alinhamento do texto maior*/
+
+}
+
+/*Caixa do email*/
+.input-box-e {
+
+    position: relative; /*Posição*/
+    width: 100%; /*Largura*/
+    height: 35px; /*altura*/
+    margin: 10px 0; /*margem*/
+    
+}
+.input-box-e input {
+
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    border: 2px solid rgba(255, 255, 255, .2); /*Borda*/
+    border-radius: 40px;
+    outline: none; /*Contorno*/
+    font-size: 16px; /*Tamanho da fonte*/
+    color: #2B2B2B;
+    padding: 15px 35px 15px 15px;
+
+}
+.input-box-e input::placeholder {
+
+    color: #2B2B2B;
+
+}
+
+.input-box-e i {
+
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    font-size: 20px;
+    transform: translateY(-50%);
+
+}
+
+/*Caixa da senha*/
+.input-box-p {
+
+    position: relative; /*Posição*/
+    width: 100%; /*Largura*/
+    height: 35px; /*altura*/
+    margin: 10px 0 30px; /*margem*/
+    
+}
+.input-box-p input {
+
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    border: 2px solid rgba(255, 255, 255, .2); /*Borda*/
+    border-radius: 40px;
+    outline: none; /*Contorno*/
+    font-size: 16px; /*Tamanho da fonte*/
+    color: #2B2B2B;
+    padding: 15px 35px 15px 15px;
+
+}
+.input-box-p input::placeholder {
+
+    color: #2B2B2B;
+
+}
+
+.input-box-p i {
+
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    font-size: 20px;
+    transform: translateY(-50%);
+
+}
+
+.lembrar-esquecer {
+    display: flex;
+    justify-content: space-between;
+    margin: -25px 0 25px;
+}
+
+.lembrar-esquecer label input {
+    accent-color: #2B2B2B; /*Contraste quando uma opção é marcada*/
+    margin-right: 0px;
+
+}
+
+.lembrar-esquecer a {
+    text-decoration: none;
+    color: #2B2B2B;
+
+}
+
+.lembrar-esquecer a:hover {
+    text-decoration: underline;
+
+} 
+
+.login {
+
+    width: 75%;
+    height: 25px ;
+    background-color: white;
+    border: none;
+    border-radius: 40px;
+    cursor: pointer; /*Muda o ícone do cursor ao passá-lo por cima do botão*/
+    font-size: 16px;
+    color: #2B2B2B;
+    font-weight: 600;
+    display: block;
+    margin: 20px auto;
+    text-align:center;
+    transform: translateY(-20%);
+}
+
+.login:hover {
+    background-color: darkgoldenrod;
+    border: 2px solid rgba(255, 255, 255, .2);
+    color: #fff;
+    transition: 0.3s;
+}
+
+.register-link {
+
+    font-size: 15px;
+    text-align: center;
+    margin: 20px 0 15px;
+
+}
+
