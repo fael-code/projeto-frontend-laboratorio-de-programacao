@@ -1,19 +1,21 @@
 import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import "boxicons/css/boxicons.min.css";
 import "../styles/register_style.css";
-import { Link } from "react-router-dom";
 import img from "../assets/img.jpg";
 
 function Register() {
+  const navigate = useNavigate();
+  
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [mostrarSenha, setMostrarSenha] = useState(false);
   const [mostrarConfirm, setMostrarConfirm] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  /*Verificar se as senhas são iguais*/ 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     
     if (password !== confirmPassword) {
@@ -21,13 +23,39 @@ function Register() {
       return;
     }
     
-    const userData = {
-      username,
-      email,
-      password
-    };
+    setLoading(true);
     
-    console.log("Dados do registro:", userData);
+    try {
+      const response = await fetch('http://127.0.0.1:8000/register/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          username: username,
+          email: email,
+          password: password,
+          password_confirm: confirmPassword
+        })
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        console.log("Usuário cadastrado com sucesso.");
+        alert("Usuário cadastrado com sucesso. Redirecionando para a tela de login...");
+        navigate('/login');
+      } else {
+        console.error("Falha ao cadastrar usuário. Motivo:", data);
+        const errorMessages = Object.entries(data).map(([key, value]) => `${key}: ${value}`).join('\n');
+        alert("Acesso negado:\n" + errorMessages);
+      }
+    } catch (error) {
+      console.error("Servidor não está funcionando:", error);
+      alert("Falha de comunicação com o servidor. Verifique se o backend está rodando em http://127.0.0.1:8000");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -35,7 +63,6 @@ function Register() {
       <form onSubmit={handleSubmit}>
         <h1>Register</h1>
 
-        {/* Campo de NOME DE USUÁRIO */}
         <div className="input-box-username-r">
           <input
             placeholder="Username"
@@ -47,7 +74,6 @@ function Register() {
           <i className="bx bxs-user"></i>
         </div>
 
-        {/* Campo de EMAIL */}
         <div className="input-box-email-r">
           <input
             placeholder="Email"
@@ -59,7 +85,6 @@ function Register() {
           <i className="bx bxs-envelope"></i>
         </div>
 
-        {/* Campo de SENHA */}
         <div className="input-box-password-r">
           <input
             placeholder="Password"
@@ -75,7 +100,6 @@ function Register() {
           ></i>
         </div>
 
-        {/* Campo de CONFIRMAR SENHA */}
         <div className="input-box-confirm-password">
           <input
             placeholder="Confirm Password"
@@ -91,14 +115,14 @@ function Register() {
           ></i>
         </div>
 
-        <button type="submit" className="register">
-          Register
+        <button type="submit" className="register" disabled={loading}>
+          {loading ? "Cadastrando..." : "Register"}
         </button>
 
         <div>
           <p>
             I have an account! 
-            <Link to="/login">  Log In...</Link>
+            <Link to="/login"> Log In...</Link>
           </p>
         </div>
       </form>
