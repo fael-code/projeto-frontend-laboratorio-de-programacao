@@ -5,8 +5,7 @@ import "../styles/register_style.css";
 import img from "../assets/img.jpg";
 
 function Register() {
-  const navigate = useNavigate();
-  
+
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -14,6 +13,7 @@ function Register() {
   const [mostrarSenha, setMostrarSenha] = useState(false);
   const [mostrarConfirm, setMostrarConfirm] = useState(false);
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -59,74 +59,76 @@ function Register() {
   };
 
   return (
-    <main className="r_container">
-      <form onSubmit={handleSubmit}>
-        <h1>Register</h1>
+      <div className="register-wrapper">
+        <main className="r_container">
+          <form onSubmit={handleSubmit}>
+            <h1>Register</h1>
 
-        <div className="input-box-username-r">
-          <input
-            placeholder="Username"
-            type="text"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            required
-          />
-          <i className="bx bxs-user"></i>
-        </div>
+            <div className="input-box-username-r">
+              <input
+                placeholder="Username"
+                type="text"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                required
+              />
+              <i className="bx bxs-user"></i>
+            </div>
 
-        <div className="input-box-email-r">
-          <input
-            placeholder="Email"
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-          <i className="bx bxs-envelope"></i>
-        </div>
+            <div className="input-box-email-r">
+              <input
+                placeholder="Email"
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+              <i className="bx bxs-envelope"></i>
+            </div>
 
-        <div className="input-box-password-r">
-          <input
-            placeholder="Password"
-            type={mostrarSenha ? "text" : "password"}
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-          <i
-            className={mostrarSenha ? "bx bx-show" : "bx bx-hide"}
-            onClick={() => setMostrarSenha(!mostrarSenha)}
-            style={{ cursor: "pointer" }}
-          ></i>
-        </div>
+            <div className="input-box-password-r">
+              <input
+                placeholder="Password"
+                type={mostrarSenha ? "text" : "password"}
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+              <i
+                className={mostrarSenha ? "bx bx-show" : "bx bx-hide"}
+                onClick={() => setMostrarSenha(!mostrarSenha)}
+                style={{ cursor: "pointer" }}
+              ></i>
+            </div>
 
-        <div className="input-box-confirm-password">
-          <input
-            placeholder="Confirm Password"
-            type={mostrarConfirm ? "text" : "password"}
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-            required
-          />
-          <i
-            className={mostrarConfirm ? "bx bx-show" : "bx bx-hide"}
-            onClick={() => setMostrarConfirm(!mostrarConfirm)}
-            style={{ cursor: "pointer" }}
-          ></i>
-        </div>
+            <div className="input-box-confirm-password">
+              <input
+                placeholder="Confirm Password"
+                type={mostrarConfirm ? "text" : "password"}
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                required
+              />
+              <i
+                className={mostrarConfirm ? "bx bx-show" : "bx bx-hide"}
+                onClick={() => setMostrarConfirm(!mostrarConfirm)}
+                style={{ cursor: "pointer" }}
+              ></i>
+            </div>
 
-        <button type="submit" className="register" disabled={loading}>
-          {loading ? "Cadastrando..." : "Register"}
-        </button>
+            <button type="submit" className="register" disabled={loading}>
+              {loading ? "Cadastrando..." : "Register"}
+            </button>
 
-        <div>
-          <p>
-            I have an account! 
-            <Link to="/login"> Log In...</Link>
-          </p>
-        </div>
-      </form>
-    </main>
+            <div>
+              <p>
+                I have an account!
+                <Link to="/login"> Log In...</Link>
+              </p>
+            </div>
+          </form>
+        </main>
+      </div>
   );
 }
 
