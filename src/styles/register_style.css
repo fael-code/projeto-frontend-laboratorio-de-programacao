@@ -40,7 +40,7 @@
 
 .r_container {
     width: 350px;
-    height: 350px;
+    height: 400px;
     padding: 20px 30px;
     backdrop-filter: blur(10px);
    -webkit-backdrop-filter: blur(10px);
