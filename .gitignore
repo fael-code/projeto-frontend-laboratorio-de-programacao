@@ -1,0 +1,11 @@
+# Ignorar dependências do Node e do Python
+node_modules/
+__pycache__/
+*.pyc
+*.pyo
+
+# Ignorar variáveis de ambiente (nunca exponha suas credenciais, senhor)
+.env
+
+# Ignorar dados locais do banco de dados (se o volume estiver na mesma pasta)
+postgres_data/
