@@ -1,0 +1,236 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400..700;1,400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+.register-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('../assets/img.jpg');
+    min-height: 100vh;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.register-wrapper::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+}
+
+.register-wrapper::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    background: rgba(0, 0, 0, 0.3); /* SUGESTÃO: aumentado para consistência com login */
+    z-index: -1;
+}
+
+.r_container {
+    width: 350px;
+    height: auto; /* ← CORRIGIDO: de 400px para auto */
+    min-height: 450px; /* SUGESTÃO: altura mínima para acomodar conteúdo */
+    padding: 30px 30px 40px; /* SUGESTÃO: padding ajustado */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: transparent;
+    border-radius: 10px; /* SUGESTÃO: bordas arredondadas */
+}
+
+.r_container h1 {
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 35px; /* SUGESTÃO: ajustado de 45px para 35px */
+    color: #ffffff; /* SUGESTÃO: texto branco para contraste */
+}
+
+/* SUGESTÃO: inputs com altura maior (igual ao login) */
+.input-box-username-r,
+.input-box-email-r,
+.input-box-password-r,
+.input-box-confirm-password {
+    position: relative;
+    width: 100%;
+    height: 50px; /* ← CORRIGIDO: de 35px para 50px */
+    margin: 15px 0;
+}
+
+.input-box-username-r input,
+.input-box-email-r input,
+.input-box-password-r input,
+.input-box-confirm-password input {
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    border: 2px solid rgba(255, 255, 255, .2);
+    border-radius: 40px;
+    outline: none;
+    font-size: 16px;
+    color: #2B2B2B;
+    padding: 0 45px 0 20px; /* ← CORRIGIDO: padding ajustado */
+    transition: all 0.3s ease; /* SUGESTÃO: transição suave */
+}
+
+/* SUGESTÃO: efeito focus nos inputs */
+.input-box-username-r input:focus,
+.input-box-email-r input:focus,
+.input-box-password-r input:focus,
+.input-box-confirm-password input:focus {
+    border-color: darkgoldenrod;
+    box-shadow: 0 0 5px rgba(184, 134, 11, 0.3);
+}
+
+.input-box-username-r input::placeholder,
+.input-box-email-r input::placeholder,
+.input-box-password-r input::placeholder,
+.input-box-confirm-password input::placeholder {
+    color: #999; /* SUGESTÃO: placeholder mais suave */
+}
+
+/* SUGESTÃO: ícones */
+.input-box-username-r i,
+.input-box-email-r i,
+.input-box-password-r i,
+.input-box-confirm-password i {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: #666;
+    transition: color 0.3s ease;
+}
+
+/* SUGESTÃO: ícone muda de cor quando input tem foco */
+.input-box-username-r:focus-within i,
+.input-box-email-r:focus-within i,
+.input-box-password-r:focus-within i,
+.input-box-confirm-password:focus-within i {
+    color: darkgoldenrod;
+}
+
+/* SUGESTÃO: botão register */
+.register {
+    display: block;
+    width: 100%; /* ← CORRIGIDO: de 75% para 100% */
+    height: 45px; /* ← CORRIGIDO: de 35px para 45px */
+    background-color: white;
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+    font-size: 16px;
+    color: #2B2B2B;
+    font-weight: 600;
+    margin: 25px auto 15px;
+    transition: all 0.3s ease;
+}
+
+.register:hover {
+    background-color: darkgoldenrod;
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.register:active {
+    transform: translateY(0);
+}
+
+/* SUGESTÃO: link de login */
+.r_container p {
+    text-align: center;
+    color: #ffffff;
+    font-size: 14px;
+    margin-top: 15px;
+}
+
+.r_container a {
+    color: darkgoldenrod;
+    text-decoration: none;
+    font-weight: 600;
+    margin-left: 5px;
+    transition: color 0.3s ease;
+}
+
+.r_container a:hover {
+    text-decoration: underline;
+    color: #ffd700;
+}
+
+/* SUGESTÃO: mensagens de erro */
+.error-message {
+    background-color: rgba(255, 0, 0, 0.1);
+    border: 1px solid rgba(255, 0, 0, 0.3);
+    border-radius: 8px;
+    color: #ff6b6b;
+    font-size: 14px;
+    margin-bottom: 20px;
+    padding: 10px;
+    text-align: center;
+}
+
+.field-error {
+    color: #ff6b6b;
+    font-size: 11px;
+    margin-top: 5px;
+    display: block;
+    position: absolute;
+    bottom: -18px;
+    left: 15px;
+}
+
+input.error {
+    border-color: #ff6b6b !important;
+}
+
+/* SUGESTÃO: responsividade */
+@media (max-width: 480px) {
+    .r_container {
+        width: 90%;
+        padding: 20px;
+        min-height: auto;
+    }
+    
+    .r_container h1 {
+        font-size: 32px;
+        margin-bottom: 25px;
+    }
+    
+    .input-box-username-r,
+    .input-box-email-r,
+    .input-box-password-r,
+    .input-box-confirm-password {
+        height: 45px;
+        margin: 12px 0;
+    }
+    
+    .register {
+        height: 40px;
+        font-size: 14px;
+        margin: 20px auto 10px;
+    }
+    
+    .input-box-username-r input,
+    .input-box-email-r input,
+    .input-box-password-r input,
+    .input-box-confirm-password input {
+        font-size: 14px;
+        padding: 0 40px 0 15px;
+    }
+}
