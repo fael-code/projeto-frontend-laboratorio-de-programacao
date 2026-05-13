@@ -14,22 +14,22 @@ services:
       - postgres_data:/var/lib/postgresql/data
 
   backend:
-    build: ./labprog
+    build: ./backend
     container_name: backend
     command: python manage.py runserver 0.0.0.0:8000
     volumes:
-      - ./labprog:/app
+      - ./backend:/app
     ports:
       - "8000:8000"
     depends_on:
       - db
 
   frontend:
-    build: ./projeto-frontend-laboratorio
+    build: ./frontend
     container_name: frontend
     command: npm run dev -- --host
     volumes:
-      - ./projeto-frontend-laboratorio:/app
+      - ./frontend:/app
       - /app/node_modules
     ports:
       - "5173:5173"
