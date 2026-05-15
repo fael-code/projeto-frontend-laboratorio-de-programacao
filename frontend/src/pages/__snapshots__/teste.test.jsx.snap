@@ -1,0 +1,167 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Testes de Snapshot - Renderização > deve manter estrutura do componente Login 1`] = `
+<div>
+  <div
+    class="login-wrapper"
+  >
+    <main
+      class="container"
+    >
+      <form>
+        <h1>
+          Login Screen
+        </h1>
+        <div
+          class="input-box-e"
+        >
+          <input
+            placeholder="Username"
+            required=""
+            type="text"
+            value=""
+          />
+          <i
+            class="bx bxs-user"
+          />
+        </div>
+        <div
+          class="input-box-p"
+        >
+          <input
+            placeholder="Password"
+            required=""
+            type="password"
+            value=""
+          />
+          <i
+            class="bx bx-hide"
+            style="cursor: pointer;"
+          />
+        </div>
+        <div
+          class="lembrar-esquecer"
+        >
+          <label>
+            <input
+              type="checkbox"
+            />
+            Remember me
+          </label>
+          <a
+            href="#"
+          >
+            Redefine password?
+          </a>
+        </div>
+        <button
+          class="login"
+          type="submit"
+        >
+          Log In
+        </button>
+        <div>
+          <p>
+            Don't have an account?
+            <a
+              data-discover="true"
+              href="/register"
+            >
+              Register...
+            </a>
+          </p>
+        </div>
+      </form>
+    </main>
+  </div>
+</div>
+`;
+
+exports[`Testes de Snapshot - Renderização > deve manter estrutura do componente Register 1`] = `
+<div>
+  <div
+    class="register-wrapper"
+  >
+    <main
+      class="r_container"
+    >
+      <form>
+        <h1>
+          Register
+        </h1>
+        <div
+          class="input-box-username-r"
+        >
+          <input
+            placeholder="Username"
+            required=""
+            type="text"
+            value=""
+          />
+          <i
+            class="bx bxs-user"
+          />
+        </div>
+        <div
+          class="input-box-email-r"
+        >
+          <input
+            placeholder="Email"
+            required=""
+            type="email"
+            value=""
+          />
+          <i
+            class="bx bxs-envelope"
+          />
+        </div>
+        <div
+          class="input-box-password-r"
+        >
+          <input
+            placeholder="Password"
+            required=""
+            type="password"
+            value=""
+          />
+          <i
+            class="bx bx-hide"
+            style="cursor: pointer;"
+          />
+        </div>
+        <div
+          class="input-box-confirm-password"
+        >
+          <input
+            placeholder="Confirm Password"
+            required=""
+            type="password"
+            value=""
+          />
+          <i
+            class="bx bx-hide"
+            style="cursor: pointer;"
+          />
+        </div>
+        <button
+          class="register"
+          type="submit"
+        >
+          Register
+        </button>
+        <div>
+          <p>
+            I have an account!
+            <a
+              data-discover="true"
+              href="/login"
+            >
+               Log In...
+            </a>
+          </p>
+        </div>
+      </form>
+    </main>
+  </div>
+</div>
+`;
