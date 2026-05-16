@@ -9,3 +9,4 @@ __pycache__/
 
 # Ignorar dados locais do banco de dados (se o volume estiver na mesma pasta)
 postgres_data/
+node_modules
